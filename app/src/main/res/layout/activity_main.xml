@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <!--<com.facebook.login.widget.LoginButton-->
+    <!--    android:id="@+id/login_button"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:layout_gravity="center_horizontal"-->
+    <!--    android:layout_marginTop="30dp"-->
+    <!--    android:layout_marginBottom="30dp" />-->
+
+    <Button
+        android:id="@+id/facebook_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_corners"
+        android:drawableStart="@drawable/facebook_icon"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:text="Log in with Facebook"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>

@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.*
-import com.facebook.AccessToken
+import com.facebook.login.BuildConfig
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_main.*
@@ -80,10 +80,10 @@ class MainActivity : AppCompatActivity() {
 
         // Callback registration
         LoginManager.getInstance()
-            .registerCallback(callbackManager, object : FacebookCallback<LoginResult?> {
-                override fun onSuccess(loginResult: LoginResult?) {
+            .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
                     Log.d("TAG", "Success Login")
-                    getUserProfile(loginResult?.accessToken, loginResult?.accessToken?.userId)
+                    getUserProfile(loginResult.accessToken, loginResult.accessToken.userId)
                 }
 
                 override fun onCancel() {
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             parameters,
             HttpMethod.GET,
             GraphRequest.Callback { response ->
-                val jsonObject = response.jsonObject
+                val jsonObject = response.jsonObject ?: return@Callback
 
                 // Facebook Access Token
                 // You can see Access Token only in Debug mode.
